@@ -29,7 +29,7 @@ jobs:
       - checkout
       - run:
           name: "print environment name"
-          command: $Name
+          command: ${Name}
           
 
 # Invoke jobs via workflows
