@@ -28,8 +28,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "print hello"
-          command: "echo Hello, Mathew!"
+          name: "print environment name"
+          command: $Name
+          
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
