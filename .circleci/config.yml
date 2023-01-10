@@ -64,7 +64,8 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-      - run: exit 1
+      - run: exit 0   
+      # set exit code to 1 for it to fail
       - run:
           name: "Bash command to fail the job"
           command: echo "ERROR!!"
