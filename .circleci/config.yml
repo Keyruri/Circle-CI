@@ -21,7 +21,7 @@ jobs:
       #     command: echo "text to output here" > output.txt
 
       - persist_to_workspace:
-          root: workspace
+          root: /home/circleci/project/workspace
           paths:
             - workspace
 
@@ -33,12 +33,12 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: temp/workspace
+          at: /home/circleci/project/workspace
       - run:
           name: "Output from file"
           command: echo "cat output.txt"
       - run: |
-          if [[ `cat /tmp/workspace/output.txt` == "Hello, world!" ]]; then
+          if [[ `cat /home/circleci/project/workspace/output.txt` == "Hello, world!" ]]; then
             echo "It worked!";
           else
             echo "Nope!"; exit 1
