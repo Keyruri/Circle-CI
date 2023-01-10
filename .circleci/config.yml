@@ -56,6 +56,19 @@ jobs:
           name: "print environment name"
           command: echo ${Name}
 
+  when-fail:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - run:
+          name: "Bash command to fail the job"
+          command: return 1
+          when: on_fail
+
   print-pipeline-id:
     docker:
         - image: cimg/base:stable
@@ -78,6 +91,7 @@ workflows:
             requires:
             - save_hello_world_output
       - print-pipeline-id
+      - when-fail
 
 
       
