@@ -46,9 +46,9 @@ jobs:
       - run:
           name: "Save Hello world in a file"
           command: |
-            echo "I am Saved in a txt file" > output.txt
+            echo "I am Saved in a txt file" > ~/output.txt
       - persist_to_workspace:
-          root: /home/circleci
+          root: ~/
           paths:
             - output.txt
           
@@ -58,7 +58,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /home/circleci
+          at: ~/
       - run: cat ~/output.txt
       
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
