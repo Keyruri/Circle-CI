@@ -48,7 +48,7 @@ jobs:
           command: |
             echo "I am Saved in a txt file" > output.txt
       - persist_to_workspace:
-          root: ~/
+          root: /home/circleci
           paths:
             - output.txt
           
@@ -58,7 +58,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/
+          at: /home/circleci
       - run: cat ~/output.txt
       
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
