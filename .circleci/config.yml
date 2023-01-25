@@ -26,6 +26,13 @@ jobs:
 
     steps:
       - run: echo "Hello World!"
+
+  print_environment_variable:
+    docker:
+        - image: circleci/node:13.8.0
+
+    steps:
+      - run: echo ${Name}
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     # docker:
@@ -101,6 +108,7 @@ workflows:
           requires:
             - print_world
       - print_world
+      - print_environment_variable
       # - save_hello_world_output
       # - print-hello:
       #     requires:
