@@ -70,8 +70,7 @@ jobs:
       - run: exit 1
       - run:
           name: "On fail Print"
-          command: |
-            echo "A job has failed"
+          command: echo "A job has failed"
           when: on_fail
       
   
