@@ -63,10 +63,10 @@ jobs:
 
   print-pipeline-id:
     docker:
-        - image: cimg/base:stable
+        - image: circleci/node:13.8.0
     steps:
-      - print_pipeline_id:
-          id: << pipeline.id >>
+      # - print_pipeline_id:
+      #     id: << pipeline.id >>
       - run: exit 1
       - run:
           name: "On fail Print"
