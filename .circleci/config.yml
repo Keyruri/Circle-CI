@@ -68,17 +68,12 @@ jobs:
       - print_pipeline_id:
           id: << pipeline.id >>
       - run: exit 1
-    
-  when_fail:
-    docker:
-        - image: cimg/base:stable
-    steps:
       - run:
           name: "On fail Print"
           command: |
             echo "A job has failed"
           when: on_fail
-      - run: exit 1
+      
   
       
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
@@ -156,9 +151,6 @@ workflows:
           requires:
             - save_hello_world_output
       - print-pipeline-id
-      - when_fail:
-          requires:
-            - print-pipeline-id
       # - save_hello_world_output
       # - print-hello:
       #     requires:
